@@ -1,37 +1,41 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-white border-b border-light-subtle sticky-top shadow-sm">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-20"> <!-- Un poco más alta para airear el diseño -->
             <div class="flex">
-                <!-- Logo -->
+                <!-- Logo con un toque de padding -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                    <a href="{{ route('dashboard') }}" class="transition-transform hover:scale-105">
+                        <x-application-logo class="block h-10 w-auto fill-current text-primary" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
-                        {{ __('Productos') }}
+                    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')"
+                        class="text-decoration-none fw-medium transition-all">
+                        <i class="bi bi-box-seam me-1"></i> {{ __('Productos') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
-                        {{ __('Categorias') }}
+                    <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')"
+                        class="text-decoration-none fw-medium transition-all">
+                        <i class="bi bi-grid-1x2 me-1"></i> {{ __('Categorías') }}
                     </x-nav-link>
                 </div>
             </div>
-
-
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-4 py-2 border border-light-subtle text-sm leading-4 font-semibold rounded-full text-gray-600 bg-white hover:bg-gray-50 hover:text-primary focus:outline-none transition duration-200 shadow-sm">
+                            <div
+                                class="bg-primary bg-opacity-10 rounded-full w-6 h-6 flex items-center justify-center me-2">
+                                <i class="bi bi-person text-primary" style="font-size: 0.8rem;"></i>
+                            </div>
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -46,18 +50,17 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                        <div class="px-3 py-2 text-xs text-muted fw-bold text-uppercase border-bottom mb-1">Cuenta</div>
+                        <x-dropdown-link :href="route('profile.edit')" class="rounded-2 mx-1 text-decoration-none">
+                            <i class="bi bi-person-gear me-2"></i> {{ __('Perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                            <x-dropdown-link :href="route('logout')" class="rounded-2 mx-1 text-danger text-decoration-none"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                <i class="bi bi-box-arrow-right me-2"></i> {{ __('Cerrar Sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -67,7 +70,7 @@
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                    class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-primary hover:bg-primary hover:bg-opacity-5 focus:outline-none transition duration-150">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -81,32 +84,36 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div :class="{ 'block': open, 'hidden': !open }"
+        class="hidden sm:hidden border-t border-light shadow-inner bg-gray-50 bg-opacity-50">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')" class="fw-medium">
+                {{ __('Productos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')" class="fw-medium">
+                {{ __('Categorías') }}
             </x-responsive-nav-link>
         </div>
 
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+        <div class="pt-4 pb-1 border-t border-light">
+            <div class="px-4 flex items-center">
+                <div class="shrink-0 me-3 bg-white p-2 rounded-circle border shadow-sm">
+                    <i class="bi bi-person text-primary"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-base text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-muted">{{ Auth::user()->email }}</div>
+                </div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="mt-3 space-y-1 pb-2">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
-                <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                    <x-responsive-nav-link :href="route('logout')" class="text-danger"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
@@ -114,3 +121,19 @@
         </div>
     </div>
 </nav>
+
+<style>
+    /* Efecto de línea activa mejorado */
+    nav .active {
+        border-bottom-width: 3px !important;
+        border-bottom-color: #0d6efd !important;
+        color: #0d6efd !important;
+    }
+
+    /* Eliminar clases de modo oscuro que puedan ensuciar el diseño blanco */
+    .dark\:bg-gray-800,
+    .dark\:text-gray-200,
+    .dark\:border-gray-700 {
+        background-color: transparent !important;
+    }
+</style>
