@@ -11,6 +11,6 @@ class HomeController extends Controller
     {
         $products = Product::with('categories')->get();
 
-        return view('welcome', compact('products'));
+        return view('shop', compact('products'));
     }
 }

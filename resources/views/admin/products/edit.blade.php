@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Categorías (Puedes seleccionar varias)</label>
+                    <label class="form-label fw-bold">Categorías</label>
                     <select name="categories[]" class="form-select" multiple style="height: 150px;" required>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" 
@@ -30,7 +30,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <div class="form-text">Mantén presionado Ctrl (Windows) para seleccionar o deseleccionar varias.</div>
+                    <div class="form-text"></div>
                 </div>
 
                 <div class="mb-3">

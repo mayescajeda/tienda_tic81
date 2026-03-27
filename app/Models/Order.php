@@ -4,25 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory;
 
-    protected $fillable = ['user_id', 'order_number', 'total', 'status'];
+    // Con esto le decimos a Laravel: "No bloquees nada, deja pasar todo a la DB"
+    protected $guarded = [];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($order) {
+
+            $codigo = 'DVC-' . strtoupper(substr(uniqid(), 7));
+            $order->folio = $codigo;
+            $order->order_number = $codigo;
+        });
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
     public function items()
     {
         return $this->hasMany(OrderItem::class);
-    }
-
-    // OBJETIVO: Relación Uno a Uno
-    public function payment()
-    {
-        return $this->hasOne(Payment::class);
     }
 }
