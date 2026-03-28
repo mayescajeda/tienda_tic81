@@ -10,7 +10,6 @@ class Order extends Model
 {
     use SoftDeletes, HasFactory;
 
-    // Con esto le decimos a Laravel: "No bloquees nada, deja pasar todo a la DB"
     protected $guarded = [];
 
     protected static function boot()

@@ -21,11 +21,9 @@ class User extends Authenticatable
         ];
     }
 
-    // Relaciones
     public function orders(): HasMany { return $this->hasMany(Order::class); }
     public function carts(): HasMany { return $this->hasMany(Cart::class); }
 
-    // Mutator: Asegura que el email siempre se guarde en minúsculas
     protected function email(): Attribute {
         return Attribute::make(
             set: fn (string $value) => strtolower($value),

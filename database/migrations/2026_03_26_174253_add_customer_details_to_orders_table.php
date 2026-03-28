@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            // Agregamos las columnas necesarias para DVC Clothing
+            
             if (!Schema::hasColumn('orders', 'order_number')) {
                 $table->string('order_number')->nullable()->after('id');
             }

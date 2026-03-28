@@ -8,7 +8,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
-            <!-- Mensaje de Bienvenida -->
             <div class="bg-gradient-to-r from-indigo-500 to-purple-600 overflow-hidden shadow-lg sm:rounded-xl">
                 <div class="p-8 text-white">
                     <h3 class="text-2xl font-bold mb-2">¡Hola de nuevo, {{ Auth::user()->name }}! 👋</h3>
@@ -17,9 +16,7 @@
                 </div>
             </div>
 
-            <!-- Grid de Estadísticas Rápidas -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
                 <div
                     class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center">
@@ -36,7 +33,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div
                     class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center">
@@ -53,7 +49,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 (Acción rápida) -->
                 <div
                     class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-between">
                     <div>
@@ -64,7 +59,6 @@
                 </div>
             </div>
 
-            <!-- Contenedor de Contenido Principal -->
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-xl">
                 <div class="p-8 text-gray-900 dark:text-gray-100">
                     <h4 class="text-lg font-semibold mb-4">Próximos pasos</h4>

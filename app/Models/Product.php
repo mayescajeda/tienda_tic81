@@ -10,13 +10,12 @@ class Product extends Model
 {
     protected $fillable = ['name', 'price', 'description', 'slug'];
 
-    // ESTO ES LO QUE FALTA:
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }
 
-    // Opcional: Esto ayuda a que el slug se genere solo
+
     protected static function boot()
     {
         parent::boot();
