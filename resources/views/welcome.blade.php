@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tienda TIC81 | Daniel</title>
+    <title>Tienda TIC81 | Marco</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card {
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-dark shadow-sm mb-5">
         <div class="container">
-            <span class="navbar-brand fw-bold">DVC Clothing</span>
+            <span class="navbar-brand fw-bold">Prueba</span>
             <a href="{{ route('admin.products.index') }}" class="btn btn-outline-light btn-sm">Panel Admin</a>
         </div>
     </nav>

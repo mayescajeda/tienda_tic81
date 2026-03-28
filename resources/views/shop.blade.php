@@ -4,8 +4,8 @@
 <div class="container py-5">
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <h1 class="display-4 fw-bold">DVC Clothing</h1>
-            <p class="lead text-muted">Estilo para cada momento de tu vida.</p>
+            <h1 class="display-4 fw-bold">TIENDA</h1>
+            <p class="lead text-muted">Frase.</p>
             <hr class="w-25 mx-auto">
         </div>
     </div>

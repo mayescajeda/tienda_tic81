@@ -4,8 +4,8 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}" class="transition-transform hover:scale-105 text-decoration-none">
-                        <span class="fs-4 fw-bold text-primary" style="letter-spacing: -0.5px;">DVC</span>
-                        <span class="fs-4 fw-light text-dark">Clothing</span>
+                        <span class="fs-4 fw-bold text-primary" style="letter-spacing: -0.5px;"></span>
+                        <span class="fs-4 fw-light text-dark">Prueba</span>
                     </a>
                 </div>
 
