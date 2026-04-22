@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,14 +44,14 @@
                                 @auth
                                     {{ __('Bienvenido/a') }}, <span class="text-primary">{{ Auth::user()->name }}</span>
                                 @else
-                                    {{ __('Bienvenido a DVC Clothing') }}
+                                    {{ __('Bienvenido a TIC81') }}
                                 @endauth
                             </h2>
                             <p class="text-muted small mb-0">
                                 @auth
-                                    ¡Qué gusto verte de nuevo! Explora nuestras novedades.
+                                    {{ __('¡Te damos la bienvenida!') }}
                                 @else
-                                    Inicia sesión para una experiencia personalizada.
+                                    {{ __('Inicia sesión para una mejor experiencia.') }}
                                 @endauth
                             </p>
                         </div>
@@ -74,5 +73,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

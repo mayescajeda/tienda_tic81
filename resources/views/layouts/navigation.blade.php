@@ -79,8 +79,9 @@
                     </x-dropdown>
                 @else
                     <a href="{{ route('login') }}"
-                        class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold text-decoration-none">Iniciar
-                        Sesión</a>
+                        class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold text-decoration-none">
+                        Iniciar Sesión
+                    </a>
                 @endauth
             </div>
 
@@ -94,6 +95,7 @@
                         </span>
                     @endif
                 </a>
+
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-primary hover:bg-primary hover:bg-opacity-5 focus:outline-none transition duration-150">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -114,12 +116,18 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 <i class="bi bi-shop me-2"></i> {{ __('Tienda') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
                 <i class="bi bi-cart3 me-2"></i> {{ __('Mi Carrito') }} ({{ count(session('cart', [])) }})
             </x-responsive-nav-link>
+
             @auth
                 <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
                     <i class="bi bi-box-seam me-2"></i> {{ __('Productos') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                    <i class="bi bi-grid-1x2 me-2"></i> {{ __('Categorías') }}
                 </x-responsive-nav-link>
             @endauth
         </div>
@@ -140,6 +148,7 @@
                     <x-responsive-nav-link :href="route('profile.edit')">
                         {{ __('Perfil') }}
                     </x-responsive-nav-link>
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-responsive-nav-link :href="route('logout')" class="text-danger"

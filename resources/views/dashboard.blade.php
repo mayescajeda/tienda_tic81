@@ -1,11 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
+<<<<<<< HEAD
         <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-100 leading-tight">
             {{ __('Bienvenid') }}
+=======
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Dashboard') }}
+>>>>>>> 285d8eb9d05da32abdd9e228c75efa2d183571cf
         </h2>
     </x-slot>
 
     <div class="py-12">
+<<<<<<< HEAD
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
             <div class="bg-gradient-to-r from-indigo-500 to-purple-600 overflow-hidden shadow-lg sm:rounded-xl">
@@ -75,6 +81,14 @@
                 </div>
             </div>
 
+=======
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __("You're logged in!") }}
+                </div>
+            </div>
+>>>>>>> 285d8eb9d05da32abdd9e228c75efa2d183571cf
         </div>
     </div>
 </x-app-layout>

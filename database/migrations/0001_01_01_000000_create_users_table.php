@@ -4,7 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+<<<<<<< HEAD
 return new class extends Migration 
+=======
+return new class extends Migration
+>>>>>>> 285d8eb9d05da32abdd9e228c75efa2d183571cf
 {
     /**
      * Run the migrations.
@@ -19,14 +23,20 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
             $table->rememberToken();
+<<<<<<< HEAD
             $table->softDeletes();
+=======
+>>>>>>> 285d8eb9d05da32abdd9e228c75efa2d183571cf
             $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email', 255)->primary();
             $table->string('token', 255);
+<<<<<<< HEAD
             $table->softDeletes();
+=======
+>>>>>>> 285d8eb9d05da32abdd9e228c75efa2d183571cf
             $table->timestamp('created_at')->nullable();
         });
 
